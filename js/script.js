@@ -1,12 +1,6 @@
 // on scroll animation //
 AOS.init();
 
-// on click sound //
-let audio = new Audio("/images/audio/torch-click-1-48731.mp3");
-document.onclick = function(){
-    audio.play();
-}
-
 // appending project work images //
 
 let projectContainer = document.getElementById("works");
@@ -101,4 +95,20 @@ function AppendSkills(){
     })
 }
 AppendSkills();
+
+// validate form //
+
+let submitButton = document.getElementById("send-btn");
+let EmailField = document.getElementById("Email");
+let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+function validateForm(){
+    let EmailFieldValue = EmailField.value;
+    if(!EmailFieldValue.match(regex)){
+       alert("Kindly check your email address!");
+    }
+}
+
+
+EmailField.addEventListener("change",  validateForm)
 
